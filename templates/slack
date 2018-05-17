@@ -1,0 +1,7 @@
+{
+    "username": "$config.webhook-username",
+    "icon_url": "$config.icon-url".
+    "channel": "$config.channel",
+    "text": "$config.text",
+    "as_user": false
+}

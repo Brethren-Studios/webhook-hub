@@ -1,0 +1,19 @@
+{
+    "avatar_url": "$config.avatar-url",
+    "username": "$config.webhook-username",
+    "embeds": [
+        {
+            ${if config.username}
+            "author": {
+                "name": "$config.username",
+                "url": "$config.author-url",
+                "icon_url": "$config.author-avatar-url"
+            },${endif}
+            "title": "$config.title",
+            "description": "$config.description",
+            "url": "$config.url",
+            "type": "rich",
+            "color": "$config.color-code"
+        }
+    ]
+}

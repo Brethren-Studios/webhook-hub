@@ -1,0 +1,6 @@
+__pycache__
+ignore
+
+# Ply output files
+parser.out
+parsetab.py
