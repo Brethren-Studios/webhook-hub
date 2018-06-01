@@ -144,8 +144,14 @@ class WebhookHubParser:
             if data is None:
                 data = ''
 
-            if type(data) in [dict, list, bool, int, float]:
+            if type(data) in [bool, int, float]:
                 data = json.dumps(data)
+
+            elif type(data) in [dict, list]:
+                data = json.dumps(str(data))[1:-1]  # Escape and remove quotations around string
+
+            elif type(data) in [str]:
+                data = json.dumps(data)[1:-1]  # Escape and remove quotations around string
 
         return data
 
