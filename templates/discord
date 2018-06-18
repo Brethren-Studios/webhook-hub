@@ -9,6 +9,12 @@
                 "url": "$config.author-url",
                 "icon_url": "$config.author-avatar-url"
             },${endif}
+            ${if config.field-value}
+            "fields": [{
+                "name": "$config.field-name",
+                "value": "$config.field-value",
+                "inline": true
+            }],${endif}
             "title": "$config.title",
             "description": "$config.description",
             "url": "$config.url",
