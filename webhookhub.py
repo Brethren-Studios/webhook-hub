@@ -38,7 +38,7 @@ from src.shell import start_shell
 __author__ = 'Evan Williams'
 __copyright__ = "Copyright 2023, Brethren Studios"
 __license__ = "MIT"
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 __email__ = "evanw555@gmail.com"
 
 

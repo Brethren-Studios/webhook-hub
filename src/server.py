@@ -64,7 +64,7 @@ def make_WebhookHubRequestHandler_class(routes, templates_dir, debug=False):
                     self.error_response(400, b'No compatible event configuration for this webhook event')
                     return
 
-                destination = route.get_destination(event_key)
+                destination = evaluate_expression(route.get_destination(event_key), self.payload, event_config)
                 template = os.path.join(templates_dir, route.get_template(event_key))
 
                 debug_log('reformat payload...')
