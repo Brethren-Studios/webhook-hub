@@ -33,9 +33,9 @@ class WebhookHubLexer:
 	tokens = ('INJ_START', 'VARIABLE', 'IF', 'NOT', 'ELSE', 'ENDIF', 'FOR', 'INDEX_VAR', 'IN', 
 		'ENDFOR', 'SHORTCUT_VARIABLE', 'INJ_END', 'TEXT', 'ESCAPED_CHAR')
 	
-	t_INITIAL_text_SHORTCUT_VARIABLE = r'\$(?:data|config|key)(?:\.[\w\-]+)*'
+	t_INITIAL_text_SHORTCUT_VARIABLE = r'\$(?:data|config|env|key)(?:\.[\w\-]+)*'
 	t_INITIAL_text_TEXT = r'.|\s'
-	t_inj_VARIABLE = r'(?:data|config|key)(?:\.[\w\-]+)*'
+	t_inj_VARIABLE = r'(?:data|config|env|key)(?:\.[\w\-]+)*'
 	t_inj_IF = r'if'
 	t_inj_NOT = r'not'
 	t_inj_ELSE = r'else'

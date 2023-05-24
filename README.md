@@ -75,6 +75,7 @@ Data Source | Result
 ------------|--------------
 `data`      | Data will be extracted from the webhook event payload.
 `config`    | Data will be extracted from the variables defined in the configuration files in the `config/` folder.
+`env`       | The value of a specified environment variable will be used.
 `key`       | The value of the for-loop key will be used. This will result in an integer index for lists and a string key for dictionary objects.
 
 For example, if the incoming payload data is `{"a": {"b": "Foo"}}`, then the expression `$data.a.b` 
@@ -82,6 +83,8 @@ will be evaluated as `Foo`
 
 For the same payload, if the configuration file for this event defines a variable `title = Hello, $data.a.b`, 
 then the expression `$config.title` will be evaluated as `Hello, Foo`
+
+The expression `$env.HOSTNAME` will be evaluated as the value of the `HOSTNAME` environment variable.
 
 In the for-loop expression `${for i in $data.z}Key is $key.i, ${endif}` with the incoming payload data 
 being `{"z": ["a", "b", "c"]}`, then the expression will be evaluated as `Key is 0, Key is 1, Key is 2`

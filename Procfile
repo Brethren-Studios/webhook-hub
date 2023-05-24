@@ -1,1 +1,1 @@
-web: python webhookhub.py start -p $PORT
+web: python webhookhub.py start -p $PORT --debug

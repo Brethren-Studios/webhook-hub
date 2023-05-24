@@ -20,6 +20,7 @@
 
 import itertools
 import json
+import os
 import ply.yacc as yacc
 import re
 import sys
@@ -31,6 +32,7 @@ __author__ = 'Evan Williams'
 
 
 CONFIG_PATTERN = re.compile(r'^config\.')
+ENV_PATTERN = re.compile(r'^env\.')
 KEY_PATTERN = re.compile(r'^key\.')
 
 
@@ -100,6 +102,8 @@ class WebhookHubParser:
             return self.evaluate_data_symbol(symbol, index_context=index_context, stringify=stringify)
         elif first_component == 'config':
             return self.evaluate_config_symbol(symbol, stringify=stringify)
+        elif first_component == 'env':
+            return self.evaluate_env_symbol(symbol)
         elif first_component == 'key':
             return self.evaluate_key_symbol(symbol, index_context=index_context, stringify=stringify)
         else:
@@ -167,6 +171,15 @@ class WebhookHubParser:
         
         if value is None:
             return '' if stringify else None
+
+        return value
+
+    def evaluate_env_symbol(self, symbol):
+        env_property = re.sub(ENV_PATTERN, '', symbol)
+        value = os.getenv(env_property)
+
+        if value is None:
+            return ''
 
         return value
 
